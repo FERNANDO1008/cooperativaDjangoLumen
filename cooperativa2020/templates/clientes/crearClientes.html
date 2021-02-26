@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro clientes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/open-iconic/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-info">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'clientes' %}"><i class="fas fa-home"></i>Home <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!--FORMULARIO DE REGISTRO DEL CLIENTE-->
+    <div id="container">
+
+        <div id="principal">
+
+            <form id="idformularioCliente" name="idformularioCliente" method="POST" action="">{% csrf_token %}
+                <div>
+                    <label class="badge badge-success">Datos generales</label>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.cedula.name}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-credit-card"></i></span> {{formulario_cliente.cedula}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.apellidos.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-info"></i></span> {{formulario_cliente.apellidos}}
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.nombres.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-info"></i></span> {{formulario_cliente.nombres}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.genero.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-venus-double"></i></span> {{formulario_cliente.genero}}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.estadoCivil.label}}</label>
+
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span> {{formulario_cliente.estadoCivil}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.correo.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-at"></i></span> {{formulario_cliente.correo}}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.telefono.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span> {{formulario_cliente.telefono}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.celular.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-at"></i></span> {{formulario_cliente.celular}}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cliente.direccion.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span> {{formulario_cliente.direccion}}
+                        </div>
+                    </div>
+
+                </div>
+                <!--FORMULARIO DE CUENTA-->
+                <div>
+                    <label class="badge badge-success">Datos de cuenta</label>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cuenta.numero.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-at"></i></span> {{formulario_cuenta.numero}}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cuenta.tipoCuenta.label}}</label>
+
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span> {{formulario_cuenta.tipoCuenta}}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">{{formulario_cuenta.saldo.label}}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-at"></i></span> {{formulario_cuenta.saldo}}
+                        </div>
+                    </div>
+                </div>
+                <center>
+                    <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                    <a type="button" href=" {% url 'clientes' %} " class="btn btn-danger btn-lg">Cancelar</a>
+                </center>
+            </form>
+        </div>
+    </div>
+    <style>
+        #container {
+            background: #c5c4c4;
+            width: 600px;
+            margin: 30px auto;
+            height: 45rem;
+            display: flex;
+            justify-content: center;
+            /* align-items por defecto tiene el valor `stretch` */
+            position: relative;
+        }
+        
+        #principal {
+            margin: 20px 25px 2px 30px;
+            justify-content: center;
+        }
+    </style>
+    <br>
+    <!--FOOTER-->
+    <footer class="bg-info text-white text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <p>
+                        Cooperativa_2020_2021
+                    </p>
+                </div>
+            </div>
+            <!--Copyright-->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2021 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
+        </div>
+    </footer>
+
+
+    <script type="text/javascript " src="node_modules/popper.js/dist/umd/popper.min.js "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx " crossorigin="anonymous "></script>
+</body>
+
+</html>

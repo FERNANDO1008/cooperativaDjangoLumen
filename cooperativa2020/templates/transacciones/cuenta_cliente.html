@@ -1,0 +1,19 @@
+Cliente: {{cliente.apellidos}} {{cliente.nombres}} <br>
+Cedula: {{cliente.cedula}} <br>
+Correo: {{cliente.correo}} <br>
+
+Numero de Cuenta: {{cuenta.numero}} <br>
+Tipo de Cuenta: {{cuenta.tipoCuenta}} <br>
+Saldo: {{cuenta.saldo}} <br>
+Estado: {{cuenta.estado}} <br>
+
+Cuenta del Cliente: {{cuenta.cliente}} <br>
+Nr Cuenta: {{cuenta}} <br>
+Cliente: {{cliente}}
+
+<table>
+    <tr>
+        <td><a href="{% url 'depositar' cuenta.numero %}">Deposito</a> </td>
+        <td>Retiro</td>
+    </tr>
+</table>
